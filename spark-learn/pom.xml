@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>spark</artifactId>
+  <artifactId>spark-learn</artifactId>
   <packaging>pom</packaging>
   <modules>
     <module>spark-streaming</module>
