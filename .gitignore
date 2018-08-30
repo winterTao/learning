@@ -1,3 +1,8 @@
+#VS code
+.project
+.settings
+.vscode
+
 # IDEA
 .idea
 target
@@ -9,6 +14,8 @@ target
 
 # Compiled class file
 *.class
+*.classpath
+*.factorypath
 
 # Log file
 *.log
