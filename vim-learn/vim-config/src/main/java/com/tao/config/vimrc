@@ -1,0 +1,286 @@
+" 定义快捷键的前缀，即 <Leader>
+let mapleader=";"
+
+" >>
+" 文件类型侦测
+
+filetype on
+" 根据侦测到的不同类型加载对应的插件
+filetype plugin on
+
+" <<
+
+" >>
+" vim 自身（非插件）快捷键
+
+" 定义快捷键到行首和行尾
+nnoremap lh ^
+nnoremap le $
+
+" Move half page faster
+nnoremap <Leader>d  <C-d>
+nnoremap <Leader>u  <C-u>
+
+" Insert mode shortcut
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+
+" 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <Leader>y "+y
+" 设置快捷键将系统剪贴板内容粘贴至vim
+nnoremap <Leader>p "+p
+
+vnoremap < <gv
+vnoremap > >gv
+
+" 设置快捷键遍历子窗口
+" " 依次遍历
+" nnoremap <Leader>wn <C-W><C-W>
+" " 跳转至右方的窗口
+" nnoremap <Leader>wl <C-W>l
+" " 跳转至左方的窗口
+" nnoremap <Leader>wh <C-W>h
+" " 跳转至上方的窗口
+" nnoremap <Leader>wk <C-W>k
+" " 跳转至下方的窗口
+" nnoremap <Leader>wj <C-W>j
+" " 最大化窗口
+" nnoremap <Leader>w_ <C-W>_
+" " 最大化垂直窗口
+" nnoremap <Leader>w\| <C-W>\|
+" " 扩大窗口
+" nnoremap <Leader>w+ <C-W>+
+" " 缩小窗口
+" nnoremap <Leader>w- <C-W>-
+
+" 定义快捷键在结对符之间跳转
+nnoremap <Leader>M %
+
+" <<
+
+" >>
+" 其他
+
+" 开启实时搜索功能
+set incsearch
+
+" 搜索时大小写不敏感
+set ignorecase
+
+" 关闭兼容模式
+set nocompatible
+
+" 配置backspace键工作方式
+set backspace=indent,eol,start
+
+" vim 自身命令行模式智能补全
+set wildmenu
+
+set history=100
+
+" 设置取消备份 禁止临时文件生成
+set nobackup
+set noswapfile
+
+" 设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
+set showmatch
+
+" 指定屏幕上可以进行分割布局的区域
+set splitbelow               " 允许在下部分割布局
+set splitright               " 允许在右侧分隔布局
+
+" <<
+
+" >>>>
+" 插件安装
+
+" vundle 环境设置
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+" vundle 管理的插件列表必须位于 vundle#begin() 和 vundle#end() 之间
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'kshenoy/vim-signature'
+
+" 插件列表结束
+call vundle#end()
+filetype plugin indent on
+" <<<<
+
+" 配色方案
+set background=dark
+colorscheme solarized
+
+" >>
+" 营造专注气氛
+
+" 禁止光标闪烁
+set gcr=a:block-blinkon0
+
+" 禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
+" 禁止显示菜单和工具条
+set guioptions-=m
+set guioptions-=T
+
+" <<
+
+" >>
+" 辅助信息
+
+" 总是显示状态栏
+set laststatus=2
+
+" 显示光标当前位置
+set ruler
+
+" 开启行号显示
+set number
+
+" 高亮显示当前行/列
+set cursorline
+set cursorcolumn
+
+" 高亮显示搜索结果
+set hlsearch
+
+" 清除高亮搜索结果
+nnoremap <Leader>sc :nohlsearch<CR>
+
+" <<
+
+" >>
+" 其他美化
+
+" 禁止折行
+set nowrap
+
+" 设置状态栏主题风格
+let g:Powerline_colorscheme='solarized256'
+
+" <<
+
+" >>
+" 语法分析
+
+" 开启语法高亮功能
+syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
+syntax on
+
+" <<
+
+" >>
+" 缩进
+set autoindent
+set smartindent
+
+" 自适应不同语言的智能缩进
+filetype indent on
+
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=4
+" 设置格式化时制表符占用空格数
+set shiftwidth=4
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
+
+" <<
+
+" >>
+" 代码折叠
+
+" 基于缩进或语法进行代码折叠
+"set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+
+" <<
+
+" >>
+" 工程文件浏览
+
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nnoremap <Leader>fl :NERDTreeToggle<CR>
+" 设置 NERDTree 子窗口宽度
+" let NERDTreeWinSize=22
+" 设置 NERDTree 子窗口位置
+let NERDTreeWinPos="left"
+" 显示隐藏文件
+" let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+" let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
+" 显示书签"
+let NERDTreeShowBookmarks=1
+" 设置忽略文件类型"
+let NERDTreeIgnore=['\~$', '\.swp$', '\.iml$', '\.idea$', '\.DS_Store$']
+
+" "How can I open a NERDTree automatically when vim starts up if no files were specified?
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" " 打开vim时自动打开NERDTree
+" autocmd vimenter * NERDTree
+
+" How can I open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" 关闭vim时，如果打开的文件除了NERDTree没有其他文件时，它自动关闭，减少多次按:q!
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" 开发的过程中，我们希望git信息直接在NERDTree中显示出来， 和Eclipse一样，修改的文件和增加的文件都给出相应的标注， 这时需要安装的插件就是 nerdtree-git-plugin,配置信息如下
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+" 显示行号
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+
+" 在终端启动vim时，共享NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" <<
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.iml,.DS_Store
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|idea)$',
+  \ 'file': '\v\.(exe|so|dll|jpg|png|jpeg)$',
+  \ }
+
+" 使indentline生效
+let g:indentLine_enabled = 1
+
+" VISUAL模式批量注释
+vnoremap <Leader>vs <Leader>cs
+
+" 注释加空格
+let g:NERDSpaceDelims=1
