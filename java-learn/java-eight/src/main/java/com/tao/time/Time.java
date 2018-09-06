@@ -2,9 +2,11 @@ package com.tao.time;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -73,6 +75,13 @@ public class Time {
     System.out.println(date1);
     Date date2 = new Date();
     System.out.println(date2.toInstant().atZone(ZoneId.systemDefault()));
+
+    System.out.println("*******************************");
+
+    DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    LocalDateTime localDateTime = LocalDateTime.parse("2018-09-06 13:12:03",formatter3);
+    System.out.println(localDateTime);
+    System.out.println(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
 
   }
 
