@@ -3,18 +3,23 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>learning</artifactId>
+    <artifactId>java-learn</artifactId>
     <groupId>com.tao.learn</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>java-learn</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-    <module>java-eight</module>
-    <module>jackson-learn</module>
-  </modules>
+  <artifactId>jackson-learn</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+  </dependencies>
 
 </project>
