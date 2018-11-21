@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
   <modules>
     <module>spark-streaming</module>
+    <module>kafka-avro</module>
   </modules>
 
 
