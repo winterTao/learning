@@ -13,6 +13,7 @@
     <module>java-learn</module>
     <module>vim-learn</module>
     <module>scala-learn</module>
+    <module>flink-learn</module>
   </modules>
 
   <properties>
