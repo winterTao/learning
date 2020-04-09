@@ -16,6 +16,7 @@
     <module>jackson-learn</module>
     <module>graph</module>
     <module>secret</module>
+    <module>excel</module>
   </modules>
 
 
