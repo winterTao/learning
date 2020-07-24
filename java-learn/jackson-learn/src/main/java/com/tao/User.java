@@ -1,54 +1,69 @@
 package com.tao;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * @author DongTao
  * @since 2018-09-05
  */
 public class User {
 
-  private String name;
-  private int age;
-  private String email;
+    private String name;
+    private int age;
+    private String email;
 
-  public User() {
-  }
+    @JSONField(name = "sex_2")
+    private UserType sex;
 
-  public User(String name, int age, String email) {
-    this.name = name;
-    this.age = age;
-    this.email = email;
-  }
+    public User() {
+    }
 
-  public String getName() {
-    return name;
-  }
+    public User(String name, int age, String email, UserType sex) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.sex = sex;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public int getAge() {
-    return age;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setAge(int age) {
-    this.age = age;
-  }
+    public int getAge() {
+        return age;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  @Override
-  public String toString() {
-    return "User{" +
-        "name='" + name + '\'' +
-        ", age=" + age +
-        ", email='" + email + '\'' +
-        '}';
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public UserType getSex() {
+        return sex;
+    }
+
+    public void setSex(UserType sex) {
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", sex=" + sex +
+                '}';
+    }
 }
