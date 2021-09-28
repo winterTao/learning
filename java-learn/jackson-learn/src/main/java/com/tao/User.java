@@ -1,11 +1,13 @@
 package com.tao;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author DongTao
  * @since 2018-09-05
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
     private String name;
