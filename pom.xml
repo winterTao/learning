@@ -24,7 +24,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <spark.version>2.4.6</spark.version>
     <spark.scala.version>2.11</spark.scala.version>
-    <jackson.version>2.10.0</jackson.version>
+    <jackson.version>2.13.4.1</jackson.version>
     <slf4j.version>1.7.25</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
   </properties>
